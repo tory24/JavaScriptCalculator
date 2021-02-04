@@ -1,0 +1,50 @@
+#calculator {
+  width: 355px;
+  text-align: center;
+  margin: 50px auto;
+  font-size: 0;
+  background: #1f1f1f;
+}
+
+#calculator, button {
+  border: 1px black solid;
+  color: white;
+  padding-bottom: 10px;
+}
+
+button {
+  width: 85px;
+  height: 80px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  background: #403e3f;
+}
+
+#clear {
+  width: 170px;
+  background: #ad0c21;
+}
+
+#divide, #multiply, #subtract, #add, #decimal {
+  background: #636162;
+}
+
+#equals {
+  width: 255px;
+  background: #223b6b;
+}
+
+#display, #equation {
+  font-family: arial;
+  font-size: 24px;
+  width: 325px;
+  height: 1.5rem;
+  text-align: end;
+}
+
+#equation {
+  font-size: 18px;
+  height: 1rem;
+  color: orange;
+  overflow: hidden;
+}
