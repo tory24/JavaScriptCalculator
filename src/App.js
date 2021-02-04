@@ -67,8 +67,8 @@ class App extends React.Component {
   }
    
   handleMinus(e) {
-    //IF last input was an operator && final input was NOT a minus
-    return ((this.state.buttons.slice(-1)[0] === 'op' && this.state.answer.slice(-1)[0] !== '-') || this.state.buttons.slice(-1)[0] === 'num') ?
+    //IF last input was an operator && final input was NOT a minus OR last input was a number OR equals
+    return ((this.state.buttons.slice(-1)[0] === 'op' && this.state.answer.slice(-1)[0] !== '-') || this.state.buttons.slice(-1)[0] === 'num' || this.state.buttons.slice(-1)[0] === 'eq') ?
       this.setState({answer: `${this.state.answer} -`, equation: `${this.state.answer} -`, buttons: [...this.state.buttons, 'op']}) : null;
   }
   

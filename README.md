@@ -8,7 +8,7 @@ This was built for FreeCodeCamp's Front End Libraries Certificate. It is one of 
 
 #### Preview
 
-![]()
+![Preview gif](preview.gif)
 
 #### Notes
 * I have modified this to the original challenge, by replacing the last operator with the new input, instead of appending the last operator.
