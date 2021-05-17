@@ -1,5 +1,8 @@
 import './App.css';
 import React from 'react';
+import Buttons from './buttons';
+import Equation from './equation';
+import Display from './display';
 
 class App extends React.Component {
   constructor(props) {
@@ -53,8 +56,8 @@ class App extends React.Component {
  
   handleOp(e) {
     var value = e.target.className;
-    var str = this.state.answer; 
-    
+    var str = this.state.answer;
+
     //Only add operators after numbers or equals
     return (this.state.buttons.slice(-1)[0] === 'num' || this.state.buttons.slice(-1)[0] === 'eq') ?
       this.setState({answer: `${this.state.answer} ${value}`, equation: `${this.state.answer} ${value}`, buttons: [...this.state.buttons, 'op']}):
@@ -65,7 +68,7 @@ class App extends React.Component {
     ((str.slice(-1)[0] === '-' && this.state.buttons.slice(-2)[0] === 'num') || (this.state.buttons.slice(-1)[0] === 'op' && str.slice(-1)[0] !== '-')) ?
       this.setState({answer: `${str.slice(0, -1)} ${value}`, equation: `${str.slice(0, -1)} ${value}`}) : null;
   }
-   
+
   handleMinus(e) {
     //IF last input was an operator && final input was NOT a minus OR last input was a number OR equals
     return ((this.state.buttons.slice(-1)[0] === 'op' && this.state.answer.slice(-1)[0] !== '-') || this.state.buttons.slice(-1)[0] === 'num' || this.state.buttons.slice(-1)[0] === 'eq') ?
@@ -90,29 +93,20 @@ class App extends React.Component {
   render() {
     return (
       <div id="calculator">
-       <p id="equation">{this.state.equation}</p>
-       <p id="display">{this.state.answer}</p>
-       <button id="clear" onClick={this.handleClear}>AC</button>
-       <button id="divide" class="/" onClick={this.handleOp}>/</button>
-       <button id="multiply" class="*" onClick={this.handleOp}>x</button>
- 
-       <button id="seven" onClick={this.handleNum}>7</button>
-       <button id="eight" onClick={this.handleNum}>8</button>
-       <button id="nine" onClick={this.handleNum}>9</button>
-       <button id="subtract" class="-" onClick={this.handleMinus}>-</button>
- 
-       <button id="four" onClick={this.handleNum}>4</button>
-       <button id="five" onClick={this.handleNum}>5</button>
-       <button id="six" onClick={this.handleNum}>6</button>
-       <button id="add" class="+" onClick={this.handleOp}>+</button>
- 
-       <button id="one" onClick={this.handleNum}>1</button>
-       <button id="two" onClick={this.handleNum}>2</button>
-       <button id="three" onClick={this.handleNum}>3</button>
-       <button id="decimal" class="." onClick={this.handleDec}>.</button>
- 
-       <button id="zero" onClick={this.handleNum}>0</button>
-       <button id="equals" onClick={this.handleEquals}>=</button>
+       <Equation 
+        equation={this.state.equation}
+       />
+       <Display
+        answer={this.state.answer}
+       />
+       <Buttons 
+        handleClear={this.handleClear}
+        handleOp={this.handleOp}
+        handleNum={this.handleNum}
+        handleMinus={this.handleMinus}
+        handleDec={this.handleDec}
+        handleEquals={this.handleEquals} 
+       />
       </div>
     )
   }
